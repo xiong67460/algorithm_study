@@ -1,1 +1,0 @@
-"D:\\pglg\\MinGW\\bin\\gcc.exe"
