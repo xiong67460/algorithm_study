@@ -33,7 +33,7 @@ vector<vector<vector<string>>> nQueens(int n)
 }
 int main()
 {
-    int n = 6;
+    int n = 5;
     auto solutions = nQueens(n);
     for (const auto &board : solutions)
     {
