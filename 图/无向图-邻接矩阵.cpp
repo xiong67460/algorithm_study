@@ -121,30 +121,24 @@ int main()
     vector<int> vertices = {10, 20, 30, 40, 50, 60};
     vector<vector<int>> edges = {
         {10, 20}, {10, 30}, {20, 30}, {20, 40}, {30, 50}, {50, 60}};
-
     GraphAdjMat graph(vertices, edges);
     graph.print();
     cout << endl;
-
     graph.addVertex(70);
     graph.addEdgeByValue(60, 70);
     graph.addEdgeByValue(40, 70);
     graph.print();
     cout << endl;
-
     graph.removeEdgeByValue(10, 30);
     graph.removeEdgeByValue(20, 40);
     graph.print();
     cout << endl;
-
     cout << "边(50, 60): " << (graph.hasEdgeByValue(50, 60) ? "存在" : "不存在") << endl;
     cout << "边(10, 30): " << (graph.hasEdgeByValue(10, 30) ? "存在" : "不存在") << endl;
     cout << endl;
-
     graph.removeVertexByValue(20);
     graph.removeVertexByValue(70);
     graph.print();
     cout << endl;
-
     return 0;
 }
