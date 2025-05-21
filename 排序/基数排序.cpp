@@ -1,4 +1,4 @@
-//非负数排序
+//只排序非负数
 #include <bits/stdc++.h>
 using namespace std;
 int digit(int num, int exp)
