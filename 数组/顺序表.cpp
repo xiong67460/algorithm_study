@@ -1,49 +1,50 @@
 #include <bits\stdc++.h>
-#define MaxSize 10
-struct SQList
+using namespace std;
+void insert(int *nums, int size, int num, int index)
 {
-    int data[MaxSize];
-    int length;
-};
-void InitList(SQList &L)
-{
-    for (int i = 0; i < MaxSize; i++)
+    for (int i = size - 1; i > index; i--)
     {
-        L.data[i] = 0;
+        nums[i] = nums[i - 1];
     }
-    L.length = 0;
+    nums[index] = num;
 }
-bool ListInsert(SQList &L, int i, int e)
+int randomAccess(int *nums, int size)
 {
-    if (i < 1 || i > L.length + 1)
-        return false;
-    if (L.length > MaxSize)
-        return false;
-    for (int j = L.length; j >= i; j--)
-        L.data[j] = L.data[j - 1];
-    L.data[i] = e;
-    L.length++;
-    return true;
+    int randomIndex = rand() % size;
+    int randomNum = nums[randomIndex];
+    return randomNum;
 }
-bool ListDelete(SQList &L, int i, int &e)
+void remove(int *nums, int size, int index)
 {
-    if (i < 1 || i > L.length + 1)
-        return false;
-    e = L.data[i - 1];
-    for (int j = i; j < L.length; j++)
-        L.data[j - 1] = L.data[j];
-    L.length--;
-    return true;
+    for (int i = index; i < size - 1; i++)
+    {
+        nums[i] = nums[i + 1];
+    }
 }
-int GetElem(SQList L, int i)
+void traverse(int *nums, int size)
 {
-    return L.data[i - 1];
+    int count = 0;
+    for (int i = 0; i < size; i++)
+    {
+        count += nums[i];
+    }
 }
-int LocateElem(SQList L, int e)
+int find(int *nums, int size, int target)
 {
-    for (int i = 0; i < L.length; i++)
-        if (L.data[i] == e)
-            return i + 1;
-    return 0;
+    for (int i = 0; i < size; i++)
+    {
+        if (nums[i] == target)
+            return i;
+    }
+    return -1;
 }
-
+int *extend(int *nums, int size, int enlarge)
+{
+    int *res = new int[size + enlarge];
+    for (int i = 0; i < size; i++)
+    {
+        res[i] = nums[i];
+    }
+    delete[] nums;
+    return res;
+}

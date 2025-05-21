@@ -1,3 +1,4 @@
+//简单实现-只能排序非负数
 #include <bits/stdc++.h>
 using namespace std;
 void Sort(vector<int> &nums)
