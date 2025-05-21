@@ -11,30 +11,36 @@
 
 using namespace std;
 
-/* 閾捐〃鑺傜偣 */
-struct ListNode {
+/* 链表节点 */
+struct ListNode
+{
     int val;
     ListNode *next;
-    ListNode(int x) : val(x), next(nullptr) {
+    ListNode(int x) : val(x), next(nullptr)
+    {
     }
 };
 
-/* 灏嗗垪琛ㄥ弽搴忓垪鍖栦负閾捐〃 */
-ListNode *vecToLinkedList(vector<int> list) {
+/* 将列表反序列化为链表 */
+ListNode *vecToLinkedList(vector<int> list)
+{
     ListNode *dum = new ListNode(0);
     ListNode *head = dum;
-    for (int val : list) {
+    for (int val : list)
+    {
         head->next = new ListNode(val);
         head = head->next;
     }
     return dum->next;
 }
 
-/* 閲婃斁鍒嗛厤缁欓摼琛ㄧ殑鍐呭瓨绌洪棿 */
-void freeMemoryLinkedList(ListNode *cur) {
-    // 閲婃斁鍐呭瓨
+/* 释放分配给链表的内存空间 */
+void freeMemoryLinkedList(ListNode *cur)
+{
+    // 释放内存
     ListNode *pre;
-    while (cur != nullptr) {
+    while (cur != nullptr)
+    {
         pre = cur;
         cur = cur->next;
         delete pre;

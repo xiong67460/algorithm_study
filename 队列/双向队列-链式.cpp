@@ -33,7 +33,7 @@ public:
     {
         return queSize;
     }
-    bool  isempty()
+    bool isempty()
     {
         return size() == 0;
     }
@@ -120,7 +120,8 @@ public:
     {
         DoublyListNode *node = front;
         vector<int> res(queSize);
-        for (int i = 0; i < queSize;i++){
+        for (int i = 0; i < queSize; i++)
+        {
             res[i] = node->val;
             node = node->next;
         }

@@ -10,26 +10,32 @@
 
 using namespace std;
 
-/* é¡¶ç‚¹ç±» */
-struct Vertex {
+/* ¶¥µãÀà */
+struct Vertex
+{
     int val;
-    Vertex(int x) : val(x) {
+    Vertex(int x) : val(x)
+    {
     }
 };
 
-/* è¾“å…¥å€¼åˆ—è¡¨ vals ï¼Œè¿”å›é¡¶ç‚¹åˆ—è¡¨ vets */
-vector<Vertex *> valsToVets(vector<int> vals) {
+/* ÊäÈëÖµÁĞ±í vals £¬·µ»Ø¶¥µãÁĞ±í vets */
+vector<Vertex *> valsToVets(vector<int> vals)
+{
     vector<Vertex *> vets;
-    for (int val : vals) {
+    for (int val : vals)
+    {
         vets.push_back(new Vertex(val));
     }
     return vets;
 }
 
-/* è¾“å…¥é¡¶ç‚¹åˆ—è¡¨ vets ï¼Œè¿”å›å€¼åˆ—è¡¨ vals */
-vector<int> vetsToVals(vector<Vertex *> vets) {
+/* ÊäÈë¶¥µãÁĞ±í vets £¬·µ»ØÖµÁĞ±í vals */
+vector<int> vetsToVals(vector<Vertex *> vets)
+{
     vector<int> vals;
-    for (Vertex *vet : vets) {
+    for (Vertex *vet : vets)
+    {
         vals.push_back(vet->val);
     }
     return vals;

@@ -42,7 +42,7 @@ public:
     int peek()
     {
         if (isempty())
-            throw out_of_range(" ╤сапн╙©у");
+            throw out_of_range(" ????????");
         return front->val;
     }
     int pop()

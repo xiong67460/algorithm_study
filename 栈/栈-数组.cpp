@@ -36,7 +36,8 @@ public:
     }
 };
 
-int main(){
+int main()
+{
     ArrayStack s;
     int n;
     cin >> n;

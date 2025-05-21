@@ -1,4 +1,4 @@
-//[0,1)浮点数排序
+//[0,1）浮点数排序
 #include <bits/stdc++.h>
 using namespace std;
 void Sort(vector<float> &nums)

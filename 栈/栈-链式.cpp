@@ -43,7 +43,7 @@ public:
     int top()
     {
         if (isempty())
-            throw out_of_range(" Õ»Îª¿Õ");
+            throw out_of_range("Õ»Îª¿Õ");
         return stackTop->val;
     }
     int pop()
@@ -90,7 +90,7 @@ int main()
     cout << s.pop() << '\n';
     cout << s.size() << '\n';
     vector<int> arr = s.tovector();
-    for(int num:arr)
+    for (int num : arr)
         cout << num << " ";
     return 0;
 }

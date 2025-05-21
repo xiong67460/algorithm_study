@@ -9,7 +9,8 @@ public:
     maxHeap(vector<int> vec)
     {
         heap = vec;
-        for (int i = parent(size() - 1); i >= 0;i--){
+        for (int i = parent(size() - 1); i >= 0; i--)
+        {
             siftdown(i);
         }
     }
@@ -71,7 +72,7 @@ public:
     void pop()
     {
         if (isempty())
-            throw out_of_range("¶ÑÎª¿Õ");
+            throw out_of_range("??????");
         swap(heap[0], heap[size() - 1]);
         heap.pop_back();
         siftdown(0);

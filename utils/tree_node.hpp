@@ -11,37 +11,41 @@
 
 using namespace std;
 
-/* äºŒå‰æ ‘èŠ‚ç‚¹ç»“æ„ä½“ */
-struct TreeNode {
+/* ¶ş²æÊ÷½Úµã½á¹¹Ìå */
+struct TreeNode
+{
     int val{};
     int height = 0;
     TreeNode *parent{};
     TreeNode *left{};
     TreeNode *right{};
     TreeNode() = default;
-    explicit TreeNode(int x, TreeNode *parent = nullptr) : val(x), parent(parent) {
+    explicit TreeNode(int x, TreeNode *parent = nullptr) : val(x), parent(parent)
+    {
     }
 };
 
-// åºåˆ—åŒ–ç¼–ç è§„åˆ™è¯·å‚è€ƒï¼š
+// ĞòÁĞ»¯±àÂë¹æÔòÇë²Î¿¼£º
 // https://www.hello-algo.com/chapter_tree/array_representation_of_tree/
-// äºŒå‰æ ‘çš„æ•°ç»„è¡¨ç¤ºï¼š
+// ¶ş²æÊ÷µÄÊı×é±íÊ¾£º
 // [1, 2, 3, 4, None, 6, 7, 8, 9, None, None, 12, None, None, 15]
-// äºŒå‰æ ‘çš„é“¾è¡¨è¡¨ç¤ºï¼š
-//             /â€”â€”â€” 15
-//         /â€”â€”â€” 7
-//     /â€”â€”â€” 3
-//    |    \â€”â€”â€” 6
-//    |        \â€”â€”â€” 12
-// â€”â€”â€” 1
-//     \â€”â€”â€” 2
-//        |    /â€”â€”â€” 9
-//         \â€”â€”â€” 4
-//             \â€”â€”â€” 8
+// ¶ş²æÊ÷µÄÁ´±í±íÊ¾£º
+//             /¡ª¡ª¡ª 15
+//         /¡ª¡ª¡ª 7
+//     /¡ª¡ª¡ª 3
+//    |    \¡ª¡ª¡ª 6
+//    |        \¡ª¡ª¡ª 12
+// ¡ª¡ª¡ª 1
+//     \¡ª¡ª¡ª 2
+//        |    /¡ª¡ª¡ª 9
+//         \¡ª¡ª¡ª 4
+//             \¡ª¡ª¡ª 8
 
-/* å°†åˆ—è¡¨ååºåˆ—åŒ–ä¸ºäºŒå‰æ ‘ï¼šé€’å½’ */
-TreeNode *vectorToTreeDFS(vector<int> &arr, int i) {
-    if (i < 0 || i >= arr.size() || arr[i] == INT_MAX) {
+/* ½«ÁĞ±í·´ĞòÁĞ»¯Îª¶ş²æÊ÷£ºµİ¹é */
+TreeNode *vectorToTreeDFS(vector<int> &arr, int i)
+{
+    if (i < 0 || i >= arr.size() || arr[i] == INT_MAX)
+    {
         return nullptr;
     }
     TreeNode *root = new TreeNode(arr[i]);
@@ -50,16 +54,19 @@ TreeNode *vectorToTreeDFS(vector<int> &arr, int i) {
     return root;
 }
 
-/* å°†åˆ—è¡¨ååºåˆ—åŒ–ä¸ºäºŒå‰æ ‘ */
-TreeNode *vectorToTree(vector<int> arr) {
+/* ½«ÁĞ±í·´ĞòÁĞ»¯Îª¶ş²æÊ÷ */
+TreeNode *vectorToTree(vector<int> arr)
+{
     return vectorToTreeDFS(arr, 0);
 }
 
-/* å°†äºŒå‰æ ‘åºåˆ—åŒ–ä¸ºåˆ—è¡¨ï¼šé€’å½’ */
-void treeToVecorDFS(TreeNode *root, int i, vector<int> &res) {
+/* ½«¶ş²æÊ÷ĞòÁĞ»¯ÎªÁĞ±í£ºµİ¹é */
+void treeToVecorDFS(TreeNode *root, int i, vector<int> &res)
+{
     if (root == nullptr)
         return;
-    while (i >= res.size()) {
+    while (i >= res.size())
+    {
         res.push_back(INT_MAX);
     }
     res[i] = root->val;
@@ -67,15 +74,17 @@ void treeToVecorDFS(TreeNode *root, int i, vector<int> &res) {
     treeToVecorDFS(root->right, 2 * i + 2, res);
 }
 
-/* å°†äºŒå‰æ ‘åºåˆ—åŒ–ä¸ºåˆ—è¡¨ */
-vector<int> treeToVecor(TreeNode *root) {
+/* ½«¶ş²æÊ÷ĞòÁĞ»¯ÎªÁĞ±í */
+vector<int> treeToVecor(TreeNode *root)
+{
     vector<int> res;
     treeToVecorDFS(root, 0, res);
     return res;
 }
 
-/* é‡Šæ”¾äºŒå‰æ ‘å†…å­˜ */
-void freeMemoryTree(TreeNode *root) {
+/* ÊÍ·Å¶ş²æÊ÷ÄÚ´æ */
+void freeMemoryTree(TreeNode *root)
+{
     if (root == nullptr)
         return;
     freeMemoryTree(root->left);
