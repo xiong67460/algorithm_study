@@ -13,15 +13,17 @@ int solve(int n, int C)
                 dp[i][j] = max(dp[i - 1][j], dp[i - 1][j - c[i]] + w[i]);
     return dp[n][C];
 }
-int main(){
+int main()
+{
     int T;
     cin >> T;
-    while(T--){
+    while (T--)
+    {
         int n, C;
         cin >> n >> C;
-        for (int i = 1; i <= n;i++)
+        for (int i = 1; i <= n; i++)
             cin >> w[i];
-        for (int i = 1; i <= n;i++)
+        for (int i = 1; i <= n; i++)
             cin >> c[i];
         memset(dp, 0, sizeof(dp));
         cout << solve(n, C) << endl;
