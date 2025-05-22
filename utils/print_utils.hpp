@@ -119,12 +119,12 @@ void printTree(TreeNode *root, Trunk *prev, bool isRight) {
     printTree(root->right, &trunk, true);
 
     if (!prev) {
-        trunk.str = "———";
+        trunk.str = "---";
     } else if (isRight) {
-        trunk.str = "/———";
+        trunk.str = "/---";
         prev_str = "   |";
     } else {
-        trunk.str = "\\———";
+        trunk.str = "\\---";
         prev->str = prev_str;
     }
 
