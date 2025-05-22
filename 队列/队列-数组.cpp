@@ -34,7 +34,7 @@ public:
     int peek()
     {
         if (isempty())
-            throw out_of_range("¶ÓÁÐÎª¿Õ");
+            throw out_of_range("é˜Ÿåˆ—ä¸ºç©º");
         return nums[front];
     }
     int pop()
@@ -48,7 +48,7 @@ public:
     {
         if (queSize == queCapacity)
         {
-            cout << " ¶ÓÁÐÒÑÂú" << endl;
+            cout << " é˜Ÿåˆ—å·²æ»¡" << endl;
             return;
         }
         int rear = (front + queSize) % queCapacity;

@@ -1,4 +1,4 @@
-//[0,1£©¸¡µãÊıÅÅĞò
+//[0,1ï¼‰æµ®ç‚¹æ•°æ’åº
 #include <bits/stdc++.h>
 using namespace std;
 void Sort(vector<float> &nums)

@@ -14,14 +14,10 @@
 #include <string>
 
 /* Find an element in a vector */
-template <typename T>
-int vecFind(const vector<T> &vec, T ele)
-{
+template <typename T> int vecFind(const vector<T> &vec, T ele) {
     int j = INT_MAX;
-    for (int i = 0; i < vec.size(); i++)
-    {
-        if (vec[i] == ele)
-        {
+    for (int i = 0; i < vec.size(); i++) {
+        if (vec[i] == ele) {
             j = i;
         }
     }
@@ -29,14 +25,10 @@ int vecFind(const vector<T> &vec, T ele)
 }
 
 /* Concatenate a vector with a delim */
-template <typename T>
-string strJoin(const string &delim, const T &vec)
-{
+template <typename T> string strJoin(const string &delim, const T &vec) {
     ostringstream s;
-    for (const auto &i : vec)
-    {
-        if (&i != &vec[0])
-        {
+    for (const auto &i : vec) {
+        if (&i != &vec[0]) {
             s << delim;
         }
         s << i;
@@ -45,21 +37,17 @@ string strJoin(const string &delim, const T &vec)
 }
 
 /* Repeat a string for n times */
-string strRepeat(string str, int n)
-{
+string strRepeat(string str, int n) {
     ostringstream os;
     for (int i = 0; i < n; i++)
         os << str;
     return os.str();
 }
 
-/* ´òÓ¡Êı×é */
-template <typename T>
-void printArray(T *arr, int n)
-{
+/* æ‰“å°æ•°ç»„ */
+template <typename T> void printArray(T *arr, int n) {
     cout << "[";
-    for (int i = 0; i < n - 1; i++)
-    {
+    for (int i = 0; i < n - 1; i++) {
         cout << arr[i] << ", ";
     }
     if (n >= 1)
@@ -69,35 +57,27 @@ void printArray(T *arr, int n)
 }
 
 /* Get the Vector String object */
-template <typename T>
-string getVectorString(vector<T> &list)
-{
+template <typename T> string getVectorString(vector<T> &list) {
     return "[" + strJoin(", ", list) + "]";
 }
 
-/* ´òÓ¡ÁĞ±í */
-template <typename T>
-void printVector(vector<T> list)
-{
+/* æ‰“å°åˆ—è¡¨ */
+template <typename T> void printVector(vector<T> list) {
     cout << getVectorString(list) << '\n';
 }
 
-/* ´òÓ¡¾ØÕó */
-template <typename T>
-void printVectorMatrix(vector<vector<T>> &matrix)
-{
+/* æ‰“å°çŸ©é˜µ */
+template <typename T> void printVectorMatrix(vector<vector<T>> &matrix) {
     cout << "[" << '\n';
     for (vector<T> &list : matrix)
         cout << "  " + getVectorString(list) + "," << '\n';
     cout << "]" << '\n';
 }
 
-/* ´òÓ¡Á´±í */
-void printLinkedList(ListNode *head)
-{
+/* æ‰“å°é“¾è¡¨ */
+void printLinkedList(ListNode *head) {
     vector<int> list;
-    while (head != nullptr)
-    {
+    while (head != nullptr) {
         list.push_back(head->val);
         head = head->next;
     }
@@ -105,21 +85,17 @@ void printLinkedList(ListNode *head)
     cout << strJoin(" -> ", list) << '\n';
 }
 
-struct Trunk
-{
+struct Trunk {
     Trunk *prev;
     string str;
-    Trunk(Trunk *prev, string str)
-    {
+    Trunk(Trunk *prev, string str) {
         this->prev = prev;
         this->str = str;
     }
 };
 
-void showTrunks(Trunk *p)
-{
-    if (p == nullptr)
-    {
+void showTrunks(Trunk *p) {
+    if (p == nullptr) {
         return;
     }
 
@@ -128,14 +104,12 @@ void showTrunks(Trunk *p)
 }
 
 /**
- * ´òÓ¡¶ş²æÊ÷
+ * æ‰“å°äºŒå‰æ ‘
  * This tree printer is borrowed from TECHIE DELIGHT
  * https://www.techiedelight.com/c-program-print-binary-tree/
  */
-void printTree(TreeNode *root, Trunk *prev, bool isRight)
-{
-    if (root == nullptr)
-    {
+void printTree(TreeNode *root, Trunk *prev, bool isRight) {
+    if (root == nullptr) {
         return;
     }
 
@@ -144,26 +118,20 @@ void printTree(TreeNode *root, Trunk *prev, bool isRight)
 
     printTree(root->right, &trunk, true);
 
-    if (!prev)
-    {
-        trunk.str = "¡ª¡ª¡ª";
-    }
-    else if (isRight)
-    {
-        trunk.str = "/¡ª¡ª¡ª";
+    if (!prev) {
+        trunk.str = "â€”â€”â€”";
+    } else if (isRight) {
+        trunk.str = "/â€”â€”â€”";
         prev_str = "   |";
-    }
-    else
-    {
-        trunk.str = "\\¡ª¡ª¡ª";
+    } else {
+        trunk.str = "\\â€”â€”â€”";
         prev->str = prev_str;
     }
 
     showTrunks(&trunk);
     cout << " " << root->val << endl;
 
-    if (prev)
-    {
+    if (prev) {
         prev->str = prev_str;
     }
     trunk.str = "   |";
@@ -171,115 +139,89 @@ void printTree(TreeNode *root, Trunk *prev, bool isRight)
     printTree(root->left, &trunk, false);
 }
 
-/* ´òÓ¡¶ş²æÊ÷ */
-void printTree(TreeNode *root)
-{
+/* æ‰“å°äºŒå‰æ ‘ */
+void printTree(TreeNode *root) {
     printTree(root, nullptr, false);
 }
 
-/* ´òÓ¡Õ» */
-template <typename T>
-void printStack(stack<T> stk)
-{
+/* æ‰“å°æ ˆ */
+template <typename T> void printStack(stack<T> stk) {
     // Reverse the input stack
     stack<T> tmp;
-    while (!stk.empty())
-    {
+    while (!stk.empty()) {
         tmp.push(stk.top());
         stk.pop();
     }
     // Generate the string to print
     ostringstream s;
     bool flag = true;
-    while (!tmp.empty())
-    {
-        if (flag)
-        {
+    while (!tmp.empty()) {
+        if (flag) {
             s << tmp.top();
             flag = false;
-        }
-        else
+        } else
             s << ", " << tmp.top();
         tmp.pop();
     }
     cout << "[" + s.str() + "]" << '\n';
 }
 
-/* ´òÓ¡¶ÓÁĞ */
-template <typename T>
-void printQueue(queue<T> queue)
-{
+/* æ‰“å°é˜Ÿåˆ— */
+template <typename T> void printQueue(queue<T> queue) {
     // Generate the string to print
     ostringstream s;
     bool flag = true;
-    while (!queue.empty())
-    {
-        if (flag)
-        {
+    while (!queue.empty()) {
+        if (flag) {
             s << queue.front();
             flag = false;
-        }
-        else
+        } else
             s << ", " << queue.front();
         queue.pop();
     }
     cout << "[" + s.str() + "]" << '\n';
 }
 
-/* ´òÓ¡Ë«Ïò¶ÓÁĞ */
-template <typename T>
-void printDeque(deque<T> deque)
-{
+/* æ‰“å°åŒå‘é˜Ÿåˆ— */
+template <typename T> void printDeque(deque<T> deque) {
     // Generate the string to print
     ostringstream s;
     bool flag = true;
-    while (!deque.empty())
-    {
-        if (flag)
-        {
+    while (!deque.empty()) {
+        if (flag) {
             s << deque.front();
             flag = false;
-        }
-        else
+        } else
             s << ", " << deque.front();
         deque.pop_front();
     }
     cout << "[" + s.str() + "]" << '\n';
 }
 
-/* ´òÓ¡¹şÏ£±í */
-// ¶¨ÒåÄ£°å²ÎÊı TKey ºÍ TValue £¬ÓÃÓÚÖ¸¶¨¼üÖµ¶ÔµÄÀàĞÍ
-template <typename TKey, typename TValue>
-void printHashMap(unordered_map<TKey, TValue> map)
-{
-    for (auto kv : map)
-    {
+/* æ‰“å°å“ˆå¸Œè¡¨ */
+// å®šä¹‰æ¨¡æ¿å‚æ•° TKey å’Œ TValue ï¼Œç”¨äºæŒ‡å®šé”®å€¼å¯¹çš„ç±»å‹
+template <typename TKey, typename TValue> void printHashMap(unordered_map<TKey, TValue> map) {
+    for (auto kv : map) {
         cout << kv.first << " -> " << kv.second << '\n';
     }
 }
 
 /* Expose the underlying storage of the priority_queue container */
-template <typename T, typename S, typename C>
-S &Container(priority_queue<T, S, C> &pq)
-{
-    struct HackedQueue : private priority_queue<T, S, C>
-    {
-        static S &Container(priority_queue<T, S, C> &pq)
-        {
+template <typename T, typename S, typename C> S &Container(priority_queue<T, S, C> &pq) {
+    struct HackedQueue : private priority_queue<T, S, C> {
+        static S &Container(priority_queue<T, S, C> &pq) {
             return pq.*&HackedQueue::c;
         }
     };
     return HackedQueue::Container(pq);
 }
 
-/* ´òÓ¡¶Ñ£¨ÓÅÏÈ¶ÓÁĞ£© */
-template <typename T, typename S, typename C>
-void printHeap(priority_queue<T, S, C> &heap)
-{
+/* æ‰“å°å †ï¼ˆä¼˜å…ˆé˜Ÿåˆ—ï¼‰ */
+template <typename T, typename S, typename C> void printHeap(priority_queue<T, S, C> &heap) {
     vector<T> vec = Container(heap);
-    cout << "¶ÑµÄÊı×é±íÊ¾£º";
+    cout << "å †çš„æ•°ç»„è¡¨ç¤ºï¼š";
     printVector(vec);
-    cout << "¶ÑµÄÊ÷×´±íÊ¾£º" << endl;
+    cout << "å †çš„æ ‘çŠ¶è¡¨ç¤ºï¼š" << endl;
     TreeNode *root = vectorToTree(vec);
     printTree(root);
     freeMemoryTree(root);

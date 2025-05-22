@@ -68,7 +68,7 @@ public:
     void removeVertex(Vertex *vet)
     {
         if (!adjList.count(vet))
-            throw invalid_argument("²»´æÔÚ¶¥µã");
+            throw invalid_argument("ä¸å­˜åœ¨é¡¶ç‚¹");
         adjList.erase(vet);
         for (auto &adj : adjList)
         {
@@ -78,20 +78,20 @@ public:
     void addEdge(Vertex *vet1, Vertex *vet2)
     {
         if (!adjList.count(vet1) || !adjList.count(vet2) || vet1 == vet2)
-            throw invalid_argument("²»´æÔÚ¶¥µã");
+            throw invalid_argument("ä¸å­˜åœ¨é¡¶ç‚¹");
         adjList[vet1].push_back(vet2);
         adjList[vet2].push_back(vet1);
     }
     void remove(Vertex *vet1, Vertex *vet2)
     {
         if (!adjList.count(vet1) || !adjList.count(vet2) || vet1 == vet2)
-            throw invalid_argument("²»´æÔÚ¶¥µã");
+            throw invalid_argument("ä¸å­˜åœ¨é¡¶ç‚¹");
         remove(adjList[vet1], vet2);
         remove(adjList[vet2], vet1);
     }
     void print()
     {
-        cout << " ÁÚ½Ó±í =" << endl;
+        cout << " é‚»æ¥è¡¨ =" << endl;
         for (auto &adj : adjList)
         {
             const auto &key = adj.first;

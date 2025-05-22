@@ -12,13 +12,15 @@ void backtrack(vector<int> &state, int target, vector<int> &choices, int start, 
         if (target - choices[i] < 0)
             break;
         if (i > start && choices[i] == choices[i - 1])
-            continue;;
+            continue;
+        ;
         state.push_back(choices[i]);
         backtrack(state, target - choices[i], choices, i + 1, res);
         state.pop_back();
     }
 }
-vector<vector<int>> subsetSumII(vector<int>&nums,int target){
+vector<vector<int>> subsetSumII(vector<int> &nums, int target)
+{
     vector<int> state;
     vector<vector<int>> res;
     int start = 0;

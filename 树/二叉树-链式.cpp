@@ -8,7 +8,7 @@ struct TreeNode
     TreeNode(int val) : val(val), left(nullptr), right(nullptr) {}
 };
 
-/*层序遍历  BFS*/
+/*灞傚簭閬嶅巻  BFS*/
 vector<int> levelOrder(TreeNode *root)
 {
     queue<TreeNode *> queue;
@@ -27,8 +27,8 @@ vector<int> levelOrder(TreeNode *root)
     return vec;
 }
 
-/*前中后序遍历 DFS*/
-/*前序*/
+/*鍓嶄腑鍚庡簭閬嶅巻 DFS*/
+/*鍓嶅簭*/
 void preOrder(TreeNode *root, vector<int> &vec)
 {
     if (root == nullptr)
@@ -37,7 +37,7 @@ void preOrder(TreeNode *root, vector<int> &vec)
     preOrder(root->left, vec);
     preOrder(root->right, vec);
 }
-/*中序*/
+/*涓簭*/
 void inOrder(TreeNode *root, vector<int> &vec)
 {
     if (root == nullptr)
@@ -46,7 +46,7 @@ void inOrder(TreeNode *root, vector<int> &vec)
     vec.push_back(root->val);
     preOrder(root->right, vec);
 }
-/*后序*/
+/*鍚庡簭*/
 void postOrder(TreeNode *root, vector<int> &vec)
 {
     if (root == nullptr)

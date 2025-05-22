@@ -42,7 +42,7 @@ public:
     int peek()
     {
         if (isempty())
-            throw out_of_range(" ????????");
+            throw out_of_range("队列为空");
         return front->val;
     }
     int pop()

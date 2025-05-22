@@ -15,11 +15,12 @@ int maxCapacity(vector<int> &ht)
     }
     return res;
 }
-int main(){
+int main()
+{
     int n;
     cin >> n;
     vector<int> ht(n);
-    for (int i = 0; i < n;i++)
+    for (int i = 0; i < n; i++)
         cin >> ht[i];
     int res = maxCapacity(ht);
     cout << res << '\n';

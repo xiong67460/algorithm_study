@@ -33,13 +33,13 @@ public:
     int peekFirst()
     {
         if (isempty())
-            throw out_of_range("双向队列为空");
+            throw out_of_range("鍙屽悜闃熷垪涓虹┖");
         return nums[front];
     }
     int peekLast()
     {
         if (isempty())
-            throw out_of_range("双向队列为空");
+            throw out_of_range("鍙屽悜闃熷垪涓虹┖");
         int last = index(front + queSize - 1);
         return nums[last];
     }
@@ -60,7 +60,7 @@ public:
     {
         if (queSize == capacity())
         {
-            cout << "双向队列已满" << '\n';
+            cout << "鍙屽悜闃熷垪宸叉弧" << '\n';
             return;
         }
         front = index(front - 1);
@@ -71,7 +71,7 @@ public:
     {
         if (queSize == capacity())
         {
-            cout << "双向队列已满" << '\n';
+            cout << "鍙屽悜闃熷垪宸叉弧" << '\n';
             return;
         }
         int rear = index(front + queSize);

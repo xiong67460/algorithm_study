@@ -22,7 +22,8 @@ double fractionalKnapsack(vector<int> wgt, vector<int> val, int cap)
             res += item.v;
             cap -= item.w;
         }
-        else{
+        else
+        {
             res += (double)item.v / item.w * cap;
             break;
         }

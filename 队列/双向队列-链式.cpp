@@ -40,19 +40,19 @@ public:
     int peekFirst()
     {
         if (isempty())
-            throw out_of_range("双向队列为空");
+            throw out_of_range("鍙屽悜闃熷垪涓虹┖");
         return front->val;
     }
     int peekLast()
     {
         if (isempty())
-            throw out_of_range("双向队列为空");
+            throw out_of_range("鍙屽悜闃熷垪涓虹┖");
         return rear->val;
     }
     int pop(bool isFront)
     {
         if (isempty())
-            throw out_of_range("队列为空");
+            throw out_of_range("闃熷垪涓虹┖");
         int val;
         if (isFront)
         {

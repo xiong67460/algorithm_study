@@ -27,7 +27,7 @@ public:
     {
         auto it = find(vertices.begin(), vertices.end(), val);
         if (it == vertices.end())
-            throw out_of_range("¶¥µãÖµ²»´æÔÚ");
+            throw out_of_range("é¡¶ç‚¹å€¼ä¸å­˜åœ¨");
         return distance(vertices.begin(), it);
     }
     void addVertex(int val)
@@ -41,7 +41,7 @@ public:
     void removeVertex(int index)
     {
         if (index >= size())
-            throw out_of_range("¶¥µã²»´æÔÚ");
+            throw out_of_range("é¡¶ç‚¹ä¸å­˜åœ¨");
         vertices.erase(vertices.begin() + index);
         adjMat.erase(adjMat.begin() + index);
         for (vector<int> &row : adjMat)
@@ -55,14 +55,14 @@ public:
     void addEdge(int i, int j)
     {
         if (i < 0 || j < 0 || i >= size() || j >= size() || i == j)
-            throw out_of_range("¶¥µã²»´æÔÚ");
+            throw out_of_range("é¡¶ç‚¹ä¸å­˜åœ¨");
         adjMat[i][j] = 1;
         adjMat[j][i] = 1;
     }
     void removeEdge(int i, int j)
     {
         if (i < 0 || j < 0 || i >= size() || j >= size() || i == j)
-            throw out_of_range("¶¥µã²»´æÔÚ");
+            throw out_of_range("é¡¶ç‚¹ä¸å­˜åœ¨");
         adjMat[i][j] = 0;
         adjMat[j][i] = 0;
     }
@@ -110,9 +110,9 @@ public:
     }
     void print()
     {
-        cout << " ¶¥µãÁĞ±í = ";
+        cout << " é¡¶ç‚¹åˆ—è¡¨ = ";
         printVector();
-        cout << " ÁÚ½Ó¾ØÕó =" << endl;
+        cout << " é‚»æ¥çŸ©é˜µ =" << endl;
         printVectorMatrix();
     }
 };
@@ -133,8 +133,8 @@ int main()
     graph.removeEdgeByValue(20, 40);
     graph.print();
     cout << endl;
-    cout << "±ß(50, 60): " << (graph.hasEdgeByValue(50, 60) ? "´æÔÚ" : "²»´æÔÚ") << endl;
-    cout << "±ß(10, 30): " << (graph.hasEdgeByValue(10, 30) ? "´æÔÚ" : "²»´æÔÚ") << endl;
+    cout << "è¾¹(50, 60): " << (graph.hasEdgeByValue(50, 60) ? "å­˜åœ¨" : "ä¸å­˜åœ¨") << endl;
+    cout << "è¾¹(10, 30): " << (graph.hasEdgeByValue(10, 30) ? "å­˜åœ¨" : "ä¸å­˜åœ¨") << endl;
     cout << endl;
     graph.removeVertexByValue(20);
     graph.removeVertexByValue(70);

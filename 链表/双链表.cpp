@@ -18,7 +18,7 @@ bool ListInsert(DLinklist &L, int i, int e)
         return false;
     DNode *s = (DNode *)malloc(sizeof(DNode));
     s->data = e;
-    s -> next = p->next;
+    s->next = p->next;
     p->next->prior = s;
     s->prior = p;
     p->next = s;

@@ -17,7 +17,7 @@ public:
     int top()
     {
         if (isempty())
-            throw out_of_range("ջΪ��");
+            throw out_of_range("栈为空");
         return stack.back();
     }
     void push(int num)

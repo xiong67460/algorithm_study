@@ -13,7 +13,8 @@ int maxProductCutting(int n)
     else
         return (int)pow(3, a);
 }
-int main(){
+int main()
+{
     int n;
     cin >> n;
     cout << maxProductCutting(n) << '\n';

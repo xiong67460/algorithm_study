@@ -1,4 +1,4 @@
-// 根据前序和中序遍历构建二叉树
+// 鏍规嵁鍓嶅簭鍜屼腑搴忛亶鍘嗘瀯寤轰簩鍙夋爲
 #include "../utils/common.hpp"
 using namespace std;
 /*struct TreeNode

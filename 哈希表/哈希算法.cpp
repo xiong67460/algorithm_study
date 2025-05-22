@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-/*¼Ó·¨¹þÏ£*/
+/*åŠ æ³•å“ˆå¸Œ*/
 int addHash(string key)
 {
     long long hash = 0;
@@ -12,7 +12,7 @@ int addHash(string key)
     return (int)hash;
 }
 
-/*³Ë·¨¹þÏ£*/
+/*ä¹˜æ³•å“ˆå¸Œ*/
 int mulHash(string key)
 {
     long long hash = 0;
@@ -24,7 +24,7 @@ int mulHash(string key)
     return (int)hash;
 }
 
-/*Òì»ò¹þÏ£*/
+/*å¼‚æˆ–å“ˆå¸Œ*/
 int xorHash(string key)
 {
     int hash = 0;
@@ -36,7 +36,7 @@ int xorHash(string key)
     return hash & MODULUS;
 }
 
-/*Ðý×ª¹þÏ£*/
+/*æ—‹è½¬å“ˆå¸Œ*/
 int rotHash(string key)
 {
     long long hash = 0;

@@ -5,9 +5,9 @@ int partition(vector<int> &nums, int left, int right)
     int i = left, j = right;
     while (i < j)
     {
-        while (i<j&&nums[j] >= nums[left])
+        while (i < j && nums[j] >= nums[left])
             j--;
-        while (i<j&&nums[i] <= nums[left])
+        while (i < j && nums[i] <= nums[left])
             i++;
         swap(nums[i], nums[j]);
     }
@@ -15,8 +15,9 @@ int partition(vector<int> &nums, int left, int right)
     return i;
 }
 
-void Sort(vector<int>&nums,int left,int right){
-    if(left>=right)
+void Sort(vector<int> &nums, int left, int right)
+{
+    if (left >= right)
         return;
     int pivot = partition(nums, left, right);
     Sort(nums, left, pivot - 1);
@@ -31,7 +32,7 @@ int main()
     {
         cin >> nums[i];
     }
-    Sort(nums,0,m-1);
+    Sort(nums, 0, m - 1);
     for (int i = 0; i < m; i++)
     {
         cout << nums[i] << " ";
