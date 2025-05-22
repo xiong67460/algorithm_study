@@ -72,7 +72,7 @@ public:
     void pop()
     {
         if (isempty())
-            throw out_of_range("??????");
+            throw out_of_range("堆为空");
         swap(heap[0], heap[size() - 1]);
         heap.pop_back();
         siftdown(0);
