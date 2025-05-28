@@ -12,18 +12,22 @@
 using namespace std;
 
 /* 链表节点 */
-struct ListNode {
+struct ListNode
+{
     int val;
     ListNode *next;
-    ListNode(int x) : val(x), next(nullptr) {
-    }
+    ListNode() : val(0), next(nullptr) {}
+    ListNode(int x) : val(x), next(nullptr) {}
+    ListNode(int x, ListNode *next) : val(x), next(next) {}
 };
 
 /* 将列表反序列化为链表 */
-ListNode *vecToLinkedList(vector<int> list) {
+ListNode *vecToLinkedList(vector<int> list)
+{
     ListNode *dum = new ListNode(0);
     ListNode *head = dum;
-    for (int val : list) {
+    for (int val : list)
+    {
         head->next = new ListNode(val);
         head = head->next;
     }
@@ -31,10 +35,12 @@ ListNode *vecToLinkedList(vector<int> list) {
 }
 
 /* 释放分配给链表的内存空间 */
-void freeMemoryLinkedList(ListNode *cur) {
+void freeMemoryLinkedList(ListNode *cur)
+{
     // 释放内存
     ListNode *pre;
-    while (cur != nullptr) {
+    while (cur != nullptr)
+    {
         pre = cur;
         cur = cur->next;
         delete pre;

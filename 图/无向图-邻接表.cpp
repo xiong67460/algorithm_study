@@ -1,4 +1,4 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
 template <typename T>
 string strJoin(const string &delim, const T &vec)
