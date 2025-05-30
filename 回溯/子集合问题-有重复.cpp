@@ -13,7 +13,6 @@ void backtrack(vector<int> &state, int target, vector<int> &choices, int start, 
             break;
         if (i > start && choices[i] == choices[i - 1])
             continue;
-        ;
         state.push_back(choices[i]);
         backtrack(state, target - choices[i], choices, i + 1, res);
         state.pop_back();
