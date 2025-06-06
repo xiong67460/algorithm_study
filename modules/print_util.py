@@ -3,12 +3,12 @@ File: print_util.py
 Created Time: 2021-12-11
 Author: krahets (krahets@163.com), msk397 (machangxinq@gmail.com)
 """
-
+from typing import List, Optional, Union
 from .tree_node import TreeNode, list_to_tree
 from .list_node import ListNode, linked_list_to_list
 
 
-def print_matrix(mat: list[list[int]]):
+def print_matrix(mat: List[List[int]]):
     """打印矩阵"""
     s = []
     for arr in mat:
@@ -16,19 +16,19 @@ def print_matrix(mat: list[list[int]]):
     print("[\n" + ",\n".join(s) + "\n]")
 
 
-def print_linked_list(head: ListNode | None):
+def print_linked_list(head: Optional[ListNode]):
     """打印链表"""
-    arr: list[int] = linked_list_to_list(head)
+    arr: List[int] = linked_list_to_list(head)
     print(" -> ".join([str(a) for a in arr]))
 
 
 class Trunk:
-    def __init__(self, prev, string: str | None = None):
+    def __init__(self, prev, string: Optional[str] = None):
         self.prev = prev
         self.str = string
 
 
-def show_trunks(p: Trunk | None):
+def show_trunks(p: Optional[Trunk]):
     if p is None:
         return
     show_trunks(p.prev)
@@ -36,7 +36,7 @@ def show_trunks(p: Trunk | None):
 
 
 def print_tree(
-    root: TreeNode | None, prev: Trunk | None = None, is_right: bool = False
+    root: Optional[TreeNode], prev: Optional[Trunk] = None, is_right: bool = False
 ):
     """
     打印二叉树
@@ -56,7 +56,7 @@ def print_tree(
         trunk.str = "/———"
         prev_str = "   |"
     else:
-        trunk.str = "\———"
+        trunk.str = "\\———"
         prev.str = prev_str
 
     show_trunks(trunk)
@@ -73,9 +73,9 @@ def print_dict(hmap: dict):
         print(key, "->", value)
 
 
-def print_heap(heap: list[int]):
+def print_heap(heap: List[int]):
     """打印堆"""
     print("堆的数组表示：", heap)
     print("堆的树状表示：")
-    root: TreeNode | None = list_to_tree(heap)
+    root: Optional[TreeNode] = list_to_tree(heap)
     print_tree(root)

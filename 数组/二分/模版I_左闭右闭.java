@@ -1,4 +1,4 @@
-//https://leetcode.cn/discuss/post/3565798/shen-du-pou-xi-er-fen-cha-zhao-by-yukiya-7r19/#c
+
 class BinarySearch {
 	// 相等返回
 	public int search(int[] nums, int target) {

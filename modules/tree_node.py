@@ -3,6 +3,7 @@ File: tree_node.py
 Created Time: 2021-12-11
 Author: krahets (krahets@163.com)
 """
+from typing import List, Optional
 
 from collections import deque
 
@@ -33,7 +34,7 @@ class TreeNode:
     #             \——— 8
 
 
-def list_to_tree_dfs(arr: list[int], i: int) -> TreeNode | None:
+def list_to_tree_dfs(arr: List[int], i: int) -> Optional[TreeNode]:
     """将列表反序列化为二叉树：递归"""
     # 如果索引超出数组长度，或者对应的元素为 None ，则返回 None
     if i < 0 or i >= len(arr) or arr[i] is None:
@@ -46,12 +47,12 @@ def list_to_tree_dfs(arr: list[int], i: int) -> TreeNode | None:
     return root
 
 
-def list_to_tree(arr: list[int]) -> TreeNode | None:
+def list_to_tree(arr: List[int]) -> Optional[TreeNode]:
     """将列表反序列化为二叉树"""
     return list_to_tree_dfs(arr, 0)
 
 
-def tree_to_list_dfs(root: TreeNode, i: int, res: list[int]) -> list[int]:
+def tree_to_list_dfs(root: TreeNode, i: int, res: List[int]) -> None:
     """将二叉树序列化为列表：递归"""
     if root is None:
         return
@@ -61,8 +62,7 @@ def tree_to_list_dfs(root: TreeNode, i: int, res: list[int]) -> list[int]:
     tree_to_list_dfs(root.left, 2 * i + 1, res)
     tree_to_list_dfs(root.right, 2 * i + 2, res)
 
-
-def tree_to_list(root: TreeNode | None) -> list[int]:
+def tree_to_list(root: Optional[TreeNode]) -> List[int]:
     """将二叉树序列化为列表"""
     res = []
     tree_to_list_dfs(root, 0, res)
