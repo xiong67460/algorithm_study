@@ -6,10 +6,10 @@ int main()
 {
     int n;
     cin >> n;
-    for (int i = 0; i < n; i++)
+    for (int i = 1; i <=n; i++)
     {
         cin >> a[i];
-        sum[i] = i ? sum[i - 1] + a[i] : a[i];
+        sum[i] = sum[i - 1] + a[i];
     }
     int m;
     cin >> m;
@@ -17,7 +17,7 @@ int main()
     {
         int l, r;
         cin >> l >> r;
-        cout << (l?sum[r] - sum[l - 1]:sum[r]) << '\n';
+        cout << sum[r] - sum[l-1] << '\n';
     }
     return 0;
 }
