@@ -42,17 +42,17 @@ void inOrder(TreeNode *root, vector<int> &vec)
 {
     if (root == nullptr)
         return;
-    preOrder(root->left, vec);
+    inOrder(root->left, vec);
     vec.push_back(root->val);
-    preOrder(root->right, vec);
+    inOrder(root->right, vec);
 }
 /*后序*/
 void postOrder(TreeNode *root, vector<int> &vec)
 {
     if (root == nullptr)
         return;
-    preOrder(root->left, vec);
-    preOrder(root->right, vec);
+    postOrder(root->left, vec);
+    postOrder(root->right, vec);
     vec.push_back(root->val);
 }
 
